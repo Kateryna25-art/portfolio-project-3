@@ -1,0 +1,1015 @@
+@use "reset";
+@use "fonts";
+@use "vars";
+@use "../../node_modules/swiper/swiper-bundle.css";
+@use "global";
+@use "media";
+
+
+.header {
+  &__inner {
+    padding: 16px 120px 25px;
+    justify-content: flex-start;
+    gap: 40px;
+    width: 100%;
+  }
+
+  &__logo {
+    margin-right: 70px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__item-link:hover {
+    opacity: 0.8;
+  }
+
+  &__btn-burger {
+    display: none;
+    height: 20px;
+    width: 40px;
+    position: relative;
+    z-index: 70;
+    left: -100px;
+
+    span,
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background-color: #000;
+      left: 0px;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    span {
+      top: 9px;
+    }
+  }
+
+  .menu {
+    gap: 15px;
+  }
+
+  &__list {
+    gap: 43px;
+  }
+
+  &__btn-link {
+    margin-left: auto;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+    padding: 11px 32px 13px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px) scale(1.01);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+.footer {
+  padding: 80px 0 70px;
+  color: #fff;
+  background-color: vars.$dark-main;
+
+  &__box {
+    padding: 0 130px;
+  }
+
+  &__inner {
+    margin-bottom: 40px;
+    padding-bottom: 70px;
+    justify-content: flex-end;
+    gap: 180px;
+    align-items: flex-start;
+    border-bottom: 1px solid #292D2D;
+  }
+
+  &__logo {
+    display: inline-block;
+    color: #fff;
+    flex-shrink: 0;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__menu {
+    gap: 120px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 17px;
+    font-size: 14px;
+    letter-spacing: 1;
+  }
+
+  &__list {
+    gap: 12px;
+  }
+
+  &__item-link:hover {
+    opacity: 0.8;
+  }
+
+  &__social {
+    gap: 12px;
+  }
+
+  &__bottom-copy {
+    color: #8B8D8D;
+  }
+
+  &__bottom-links {
+    gap: 40px;
+  }
+}
+
+.top {
+  padding-bottom: 80px;
+
+  &__inner {
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../images/top-decor.svg);
+      width: 133px;
+      height: 276px;
+    }
+  }
+
+  &__content {
+    background-color: vars.$color-primary;
+    position: relative;
+    padding: 160px 120px 240px 130px;
+    flex: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url(../images/decor-crambs.svg);
+      width: 64px;
+      height: 56px;
+      right: 30%;
+    }
+  }
+
+  &__badge {
+    @extend %oswald-400;
+  }
+
+  &__title {
+    font-size: 72px;
+    margin-bottom: 27px;
+
+    span {
+      display: block;
+      @extend %ultra-400;
+      line-height: 1.25;
+    }
+  }
+
+  &__img-box {
+    flex: 1;
+
+    img,
+    picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+
+.about {
+  position: relative;
+  padding: 80px 0 100px;
+
+  &__inner {
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 100px;
+    z-index: 10;
+    padding: 0 40px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../images/decor-crambs.svg);
+      background-repeat: no-repeat;
+      width: 154px;
+      height: 134px;
+      z-index: 20;
+      bottom: 6%;
+      left: 6%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url(../images/decor-crambs.svg);
+      background-repeat: no-repeat;
+      width: 100px;
+      height: 87px;
+      top: 10%;
+      left: 33%;
+      z-index: 21;
+    }
+  }
+
+  &__images-box {
+    position: relative;
+    min-height: 540px;
+
+    img,
+    picture {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../images/about-decor.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 70%;
+     aspect-ratio: 497 / 545;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+
+  .about__img {
+    position: absolute;
+    left: 80px;
+    top: 230px;
+  }
+
+  &__content {
+    margin-left: 0;
+    min-width: 80%;
+    max-width: 400px;
+    left: 15%;
+    top: 180px;
+
+    span {
+      @extend %oswald-400;
+      margin-bottom: 17px;
+    }
+  }
+
+  &__content-box {
+    text-align: center;
+
+    span {
+      @extend %oswald-400;
+    }
+  }
+
+  &__content-title {
+    @extend %oswald-400;
+    font-size: 24px;
+    margin-bottom: 22px;
+  }
+
+  &__content-text {
+    margin-bottom: 35px;
+  }
+}
+
+.about__content-box .about__subcontent {
+
+  span {
+    display: block;
+    @extend %dmsans-400;
+    margin-bottom: 16px;
+  }
+}
+
+.features {
+  padding: 170px 125px 110px;
+
+  &__inner {
+    span {
+      color: vars.$dark-main;
+      @extend %oswald-400;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+
+  &__box {
+    text-align: start;
+  }
+
+  &__item {
+    position: relative;
+    padding: 56px 40px 48px 40px;
+
+    svg {
+      display: inline-block;
+      margin-bottom: 58px;
+      color: #F9BF77;
+    }
+  }
+
+  &__item:nth-child(3):hover {
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../images/features-decor1.svg);
+      width: 129px;
+      height: 146px;
+      top: 0;
+      right: 0px;
+      transition: 1s ease;
+    }
+  }
+
+  &__item:hover {
+    background-color: #F9BF77;
+    transition: background-color 1s ease;
+  }
+
+  &__item:hover svg {
+    color: #fff;
+    transition: color 1s ease;
+  }
+
+  &__item-title {
+    @extend %ultra-400;
+    font-size: 40px;
+    margin-bottom: 18px;
+  }
+
+  &__item-text {
+    color: #999999;
+  }
+}
+
+.our-video {
+  padding: 110px 0;
+
+  &__inner {
+    padding: 72px 233px 144px 214px;
+    color: #fff;
+    gap: 286px;
+    background-image: url(../images/bg-video.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 480px;
+    width: 100%;
+  }
+
+  &__play-box {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      mask-image: url(../images/decor-crambs.svg);
+      background-repeat: no-repeat;
+      width: 154px;
+      height: 134px;
+      background-color: #F9BF77;
+      top: -43px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    z-index: 30;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__content {
+    max-width: 473px;
+    width: 100%;
+
+    span {
+      display: block;
+      margin-bottom: 18px;
+      @extend %oswald-400;
+    }
+  }
+
+  &__title {
+    @extend %ultra-400;
+    font-size: 56px;
+  }
+}
+
+.our-products {
+  padding: 0 115px 112px;
+
+
+  &__overline {
+    @extend %oswald-400;
+    color: vars.$dark-main;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+
+  &__card {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  &__box {
+
+    img,
+    picture {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  &__box--big {
+    grid-column: span 2;
+    position: relative;
+  }
+
+  &__content--big {
+    position: absolute;
+    bottom: 80px;
+    left: 40px;
+    right: 40px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    color: #fff;
+
+    .our-products__category {
+      @extend %oswald-400;
+      width: 100%;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .our-products__subtitle {
+      @extend %ultra-400;
+      font-size: 40px;
+      max-width: 350px;
+    }
+
+    .our-products__text {
+      color: #97918C;
+      max-width: 450px;
+      width: 100%;
+    }
+
+    .our-products__price {
+      @extend %ultra-400;
+      font-size: 40px;
+      margin: 0;
+    }
+  }
+
+  &__content {
+    &:not(&--big) {
+      margin-top: 25px;
+      padding: 0 30px 40px 22px;
+    }
+  }
+
+  &__category {
+    width: 100%;
+    margin-bottom: 12px;
+    @extend %oswald-400;
+  }
+
+  &__subtitle {
+    @extend %oswald-400;
+    font-size: 24px;
+  }
+
+  &__price {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    @extend %ultra-400;
+    font-size: 40px;
+  }
+
+  &__btn {
+    background-color: #97918C;
+    margin: 64px auto 0;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.our-process {
+  padding: 105px 10px 170px;
+  background-color: vars.$dark-main;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url(../images/decor-procecc.svg);
+    background-repeat: no-repeat;
+    width: 278px;
+    height: 211px;
+    top: 0;
+  }
+
+  &__inner {
+    text-align: center;
+  }
+
+  &__overline {
+    color: #fff;
+    @extend %oswald-400;
+    margin-bottom: 18px;
+  }
+
+  &__title {
+    color: #fff;
+  }
+
+  &__box {
+    text-align: left;
+    background-color: #fff;
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  &__item {
+    padding: 160px 40px 56px;
+    max-width: 286px;
+    width: 100%;
+    position: relative;
+    z-index: 40;
+    transition: background-color .5s ease, transform .5s ease;
+
+    span {
+      position: absolute;
+      top: 40px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../images/card-decor.png);
+      width: 158px;
+      height: 147px;
+      top: 0;
+      right: 0;
+      opacity: 0;
+    }
+
+    &:hover {
+      background-color: #F9BF77;
+      z-index: 41;
+      transform: scale(1.15);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__title-card {
+    @extend %ultra-400;
+    font-size: 40px;
+  }
+
+  &__text {
+    line-height: 2;
+  }
+}
+
+.our-recipes {
+  padding: 80px 20px 120px;
+  background-color: vars.$dark-main;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-image: url(../images/recipes-decor.svg);
+    background-repeat: no-repeat;
+    width: 190px;
+    height: 211px;
+    top: 0;
+    right: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url(../images/recipes-cramb.svg);
+    background-repeat: no-repeat;
+    width: 190px;
+    height: 211px;
+    top: 60px;
+    right: -50px;
+  }
+
+  &__inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__overline {
+    @extend %oswald-400;
+    color: #fff;
+  }
+
+  &__title {
+    color: #fff;
+    max-width: 617px;
+    width: 100%;
+  }
+
+  &__wrapper {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    grid-auto-flow: dense;
+    margin-bottom: 60px;
+  }
+
+  &__card {
+
+    img,
+    picture {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    &:nth-child(1) {
+      grid-column: 1/2;
+      grid-row: 1/3;
+
+      .our-recipes__card-subtitle {
+        @extend %oswald-400;
+        color: #7A7A7A;
+        margin-bottom: 14px;
+      }
+
+      .our-recipes__card-title {
+        @extend %ultra-400;
+        font-size: 40px;
+      }
+
+      .our-recipes__card-time {
+        @extend %oswald-400;
+        font-size: 24px;
+        position: absolute;
+        gap: 4px;
+        bottom: 0;
+        right: 0;
+
+        &::before {
+          content: '';
+          display: block;
+          background-image: url(../images/time-delicious.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .our-recipes__card-contentbox {
+        padding: 25px 48px 33px;
+        position: relative;
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__card-content {
+    padding: 11px 36px 26px;
+    background-color: #fff;
+  }
+
+  &__card-info {
+    align-items: flex-start;
+  }
+
+  &__card-text {
+    font-size: 20px;
+    color: #7A7A7A;
+  }
+
+  &__btn {
+    color: #fff;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.our-baker {
+  padding: 160px 125px 170px 125px;
+
+  &__inner {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../images/about-decor.svg);
+      background-repeat: no-repeat;
+      width: 342px;
+      height: 360px;
+      right: 145px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url(../images/decor-baker.svg);
+      background-repeat: no-repeat;
+      width: 342px;
+      height: 360px;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &__overline {
+    @extend %oswald-400;
+  }
+
+  &__wrapper {
+    padding: 5px;
+  }
+
+  &__slider {
+    height: 300px;
+    gap: 40px;
+    position: relative;
+  }
+
+  &__nav {
+    position: static;
+    gap: 20px;
+  }
+
+  &__sliders {
+    flex-grow: 1;
+  }
+
+  &__slide-name {
+    margin-bottom: 22px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    opacity: 1;
+    margin: 0;
+    width: 48px;
+    height: 48px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .swiper-button-prev {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__box {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 114px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 154px;
+      height: 134px;
+      top: 37%;
+      left: -22%;
+      z-index: 45;
+      background-image: url(../images/decor-crambs.svg);
+    }
+
+    img,
+    picture {
+      position: relative;
+      z-index: 40;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.testimonials {
+  padding: 60px 0 180px;
+
+  &__inner {
+    width: 100%;
+  }
+
+  &__overline {
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__sliders {
+    min-height: 370px;
+    height: 100%;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 40px;
+    margin: 0;
+    overflow: visible;
+  }
+
+  &__wrapper {
+    box-sizing: border-box;
+  }
+
+  &__slidecard {
+    padding: 30px;
+    text-align: left;
+    transition: transform .3s ease;
+    position: relative;
+    z-index: 50;
+    margin-right: 0;
+
+    &:hover {
+      background-color: #F9BF77;
+      transform: scale(1.05);
+      z-index: 51;
+    }
+  }
+
+  &__slidecard-user {
+
+    img,
+    picture {
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+  &__slidecard-title {
+    @extend %oswald-400;
+    font-size: 24px;
+    margin-bottom: 23px;
+  }
+
+  &__slidecard-text {
+    color: #999999;
+  }
+}
+
+.get-touch {
+  padding: 98px 40px 250px;
+
+  &__inner {
+    position: relative;
+    padding: 0 115px;
+    gap: 60px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../images/about-decor.svg);
+      background-repeat: no-repeat;
+      width: 490px;
+      height: 500px;
+      top: 0;
+      left: -50px;
+      z-index: 59;
+    }
+  }
+
+  &__box {
+    position: relative;
+    z-index: 60;
+
+    img,
+    picture {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    padding-top: 56px;
+  }
+
+  &__overline {
+    margin-bottom: 18px;
+    @extend %oswald-400;
+    text-transform: uppercase
+  }
+
+  &__info {
+    margin-top: 30px;
+    margin-bottom: 70px;
+  }
+
+  &__item {
+    gap: 50px;
+
+    span {
+      margin-bottom: 10px;
+      @extend %oswald-400;
+    }
+
+  }
+
+  &__link:hover {
+    opacity: 0.7;
+  }
+
+
+  &__item-title {
+    @extend %oswald-400;
+    font-size: 24px;
+    margin-bottom: 22px;
+  }
+
+  &__item-text {
+    color: #7A7A7A;
+  }
+
+  &__item-phone {
+    color: #7A7A7A;
+  }
+
+  &__btn {
+    padding: 11px 48px;
+    @extend %oswald-400;
+    text-transform: uppercase;
+    border: 1px solid #c8c8c8;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
